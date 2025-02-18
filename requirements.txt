@@ -1,0 +1,4 @@
+flask
+pickle-mixin
+pandas
+fpgrowth-py

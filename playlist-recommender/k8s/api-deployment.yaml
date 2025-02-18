@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: playlist-api
+  template:
+    metadata:
+      labels:
+        app: playlist-api
+    spec:
+      containers:
+      - name: playlist-api
+        image: zzy0110/playlist-api:latest
+        ports:
+        - containerPort: 52011  # ✅ 这里改为 52011
