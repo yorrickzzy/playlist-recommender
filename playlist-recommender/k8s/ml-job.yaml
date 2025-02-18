@@ -1,5 +1,5 @@
 apiVersion: batch/v1
-kind: Job  # ✅ 这里改成 Job
+kind: Job  # 使用 Job 资源来执行训练任务
 metadata:
   name: playlist-ml
 spec:
@@ -8,17 +8,16 @@ spec:
       labels:
         app: playlist-ml
     spec:
-      restartPolicy: Never  # ✅ 只允许 Job 使用 restartPolicy: Never
+      restartPolicy: Never  # 设置 Job 的 restartPolicy 为 Never
       containers:
       - name: playlist-ml
-        image: zzy0110/playlist-ml:latest
-        command: ["python", "/app/train_model.py"]
+        image: zzy0110/playlist-ml:{{ .Values.dockerTag }}  # 引用 Docker 镜像标签（使用 Helm 模板语法）
+        command: ["python", "/app/train_model.py"]  # 执行训练脚本
         volumeMounts:
         - name: spotify-dataset
-          mountPath: /home/datasets/spotify  # ✅ 把数据集挂载到容器内部
+          mountPath: /home/datasets/spotify  # 将数据集挂载到容器中
       volumes:
       - name: spotify-dataset
         hostPath:
-          path: /home/datasets/spotify  # ✅ 挂载实际的数据集路径
+          path: /home/datasets/spotify  # 挂载宿主机上的数据集路径
           type: Directory
-
