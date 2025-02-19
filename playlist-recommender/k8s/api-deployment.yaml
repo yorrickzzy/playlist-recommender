@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: playlist-api
-        image: zzy0110/playlist-api:{{ .Values.dockerTag }}
+        image: zzy0110/playlist-api:latest
         ports:
         - containerPort: 52011  # ✅ 这里改为 52011
