@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: playlist-api
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: playlist-api
