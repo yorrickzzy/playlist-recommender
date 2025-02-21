@@ -8,7 +8,7 @@ spec:
       labels:
         app: playlist-ml
     spec:
-      restartPolicy: Never  # 设置 Job 的 restartPolicy 为 Never
+      restartPolicy: Always  # 设置 Job 的 restartPolicy 为 Never
       containers:
       - name: playlist-ml
         image: zzy0110/playlist-ml:latest  # 引用 Docker 镜像标签（使用 Helm 模板语法）
