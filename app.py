@@ -3,7 +3,6 @@ import pickle
 
 app = Flask(__name__)
 
-# 加载推荐模型
 with open("playlist_rules.pkl", "rb") as f:
     rules = pickle.load(f)
 
