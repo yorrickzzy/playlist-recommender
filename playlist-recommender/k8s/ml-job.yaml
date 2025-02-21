@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-ml-$(date +%s)  # 使用时间戳生成唯一名称
+  generateName: playlist-ml-  # 使用 generateName 代替 name
 spec:
   template:
     metadata:
