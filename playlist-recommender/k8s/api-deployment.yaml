@@ -16,4 +16,4 @@ spec:
       - name: playlist-api
         image: zzy0110/playlist-api:latest
         ports:
-        - containerPort: 52011  # ✅ 这里改为 52011
+        - containerPort: 52011  
