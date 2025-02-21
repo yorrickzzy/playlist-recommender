@@ -3,6 +3,7 @@ kind: Deployment  # 使用 Job 资源来执行训练任务
 metadata:
   name: playlist-ml
 spec:
+  replicas: 1 
   template:
     metadata:
       labels:
