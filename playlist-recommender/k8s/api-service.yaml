@@ -7,6 +7,6 @@ spec:
     app: playlist-api
   ports:
     - protocol: TCP
-      port: 80       # Service 对外暴露的端口，保持不变
-      targetPort: 52011  # ✅ 这里改为 52011
-  type: LoadBalancer  # 允许外部访问
+      port: 80       
+      targetPort: 52011  
+  type: NodePort  
