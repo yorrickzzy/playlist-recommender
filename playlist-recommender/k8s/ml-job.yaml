@@ -1,26 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-ml-v2  
+  name: playlist-ml-v2  
 spec:
-  template:
-    metadata:
-      labels:
-        app: playlist-ml
-    spec:
-      restartPolicy: Never
-      containers:
-      - name: playlist-ml
-        image: zzy0110/playlist-ml:latest
-        command: ["python", "/app/train_model.py"]
-        env:
-        - name: DATASET_PATH
-          value: "/home/datasets/spotify/2023_spotify_ds2.csv"
-        volumeMounts:
-        - name: spotify-dataset
-          mountPath: /home/datasets/spotify
-      volumes:
-      - name: spotify-dataset
-        hostPath:
-          path: /home/datasets/spotify
-          type: Directory
+  template:
+    metadata:
+      labels:
+        app: playlist-ml
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: playlist-ml
+        image: zzy0110/playlist-ml:latest
+        command: ["python", "/app/train_model.py"]
+        env:
+        - name: DATASET_PATH
+          value: "/home/datasets/spotify/2023_spotify_ds2.csv"
+        volumeMounts:
+        - name: spotify-dataset
+          mountPath: /home/datasets/spotify
+      volumes:
+      - name: spotify-dataset
+        hostPath:
+          path: /home/datasets/spotify
+          type: Directory
