@@ -18,11 +18,10 @@ spec:
           value: "/home/datasets/spotify/2023_spotify_ds2.csv"
         volumeMounts:
         - name: spotify-dataset
-          mountPath: /home/datasets/spotify
+          mountPath: /home/datasets/spotify  # 这里是 PVC 挂载点
       volumes:
       - name: spotify-dataset
-        hostPath:
-          path: /home/datasets/spotify
-          type: Directory
+        persistentVolumeClaim:
+          claimName: model-pvc  # 绑定到 PVC，而不是 hostPath
 
 
