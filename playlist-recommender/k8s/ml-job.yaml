@@ -12,15 +12,16 @@ spec:
       containers:
       - name: playlist-ml
         image: zzy0110/playlist-ml:latest
+        imagePullPolicy: Always
         command: ["python", "/app/train_model.py"]
         env:
         - name: DATASET_PATH
-          value: "/home/datasets/spotify/2023_spotify_ds2.csv"
+          value: "/mnt/datasets/2023_spotify_ds2.csv"
         volumeMounts:
         - name: spotify-dataset
-          mountPath: /home/datasets/spotify
+          mountPath: /mnt/datasets
       volumes:
       - name: spotify-dataset
-        hostPath:
-          path: /home/datasets/spotify
-          type: Directory
+        persistentVolumeClaim:
+          claimName: model-pvc  # 这里使用 PVC
+
