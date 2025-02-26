@@ -3,11 +3,7 @@ import pandas as pd
 import pickle
 
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-dataset_path = os.path.join(BASE_DIR, "../dataset/dataset/dataset_v2.csv")
-
-if not os.path.exists(dataset_path):
-    raise FileNotFoundError(f"Dataset file not found: {dataset_path}")
+dataset_path = os.getenv("DATASET_PATH", "/mnt/datasets/2023_spotify_ds2.csv")
 
 df = pd.read_csv(dataset_path)
 
