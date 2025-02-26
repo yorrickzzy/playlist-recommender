@@ -21,6 +21,5 @@ spec:
           mountPath: /home/datasets/spotify
       volumes:
       - name: spotify-dataset
-        hostPath:
-          path: /home/datasets/spotify
-          type: Directory
+        persistentVolumeClaim:
+          claimName: model-pvc  # 替换为你的 PVC 名称
