@@ -1,10 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
 
 with open("playlist_rules.pkl", "rb") as f:
     rules = pickle.load(f)
+
+@app.route("/")
+def index():
+    return render_template("index.html")  # 返回前端页面
 
 @app.route("/api/recommend", methods=["POST"])
 def recommend():
