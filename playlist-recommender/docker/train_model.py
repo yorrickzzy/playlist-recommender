@@ -13,3 +13,5 @@ freqItemSet, rules = fpgrowth(transactions, minSupRatio=0.1, minConf=0.5)
 with open("playlist_rules.pkl", "wb") as f:
     pickle.dump(rules, f)
 print("Model Saved！")
+
+print("Starting training with updated model version 2.0...")

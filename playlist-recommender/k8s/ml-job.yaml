@@ -11,7 +11,7 @@ spec:
       restartPolicy: Never
       containers:
       - name: playlist-ml
-        image: zzy0110/playlist-ml:latest
+        image: zzy0110/playlist-ml:0.2
         command: ["python", "/app/train_model.py"]
         env:
         - name: DATASET_PATH
