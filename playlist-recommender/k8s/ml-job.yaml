@@ -1,8 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-ml-v2
-  namespace: zeyuan
+  name: playlist-ml-v2  
 spec:
   template:
     metadata:
@@ -16,13 +15,13 @@ spec:
         command: ["python", "/app/train_model.py"]
         env:
         - name: DATASET_PATH
-          value: "/mnt/datasets/2023_spotify_ds2.csv"
+          value: "/home/datasets/spotify/2023_spotify_ds2.csv"
         volumeMounts:
         - name: spotify-dataset
-          mountPath: /mnt/datasets
+          mountPath: /home/datasets/spotify
       volumes:
       - name: spotify-dataset
-        persistentVolumeClaim:
-          claimName: model-pvc
-
+        hostPath:
+          path: /home/datasets/spotify
+          type: Directory
 
