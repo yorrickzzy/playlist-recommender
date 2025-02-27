@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 
-df = pd.read_csv("/home/datasets/spotify/2023_spotify_ds2.csv")
+df = pd.read_csv("/home/datasets/spotify/2023_spotify_ds1.csv")
 df['track_name'] = df['track_name'].str.strip().str.lower()  
 df['track_name'] = df['track_name'].str.rstrip('.')
 transactions = df.groupby("pid")["track_name"].apply(list).tolist()

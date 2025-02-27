@@ -15,7 +15,7 @@ spec:
         command: ["python", "/app/train_model.py"]
         env:
         - name: DATASET_PATH
-          value: "/home/datasets/spotify/2023_spotify_ds2.csv"
+          value: "/home/datasets/spotify/2023_spotify_ds1.csv"
         volumeMounts:
         - name: spotify-dataset
           mountPath: /home/datasets/spotify
