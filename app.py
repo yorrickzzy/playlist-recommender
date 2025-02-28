@@ -8,7 +8,7 @@ with open("playlist_rules.pkl", "rb") as f:
 
 @app.route("/")
 def index():
-    return render_template("index.html")  # 返回前端页面
+    return render_template("index.html")  
 
 @app.route("/api/recommend", methods=["POST"])
 def recommend():
